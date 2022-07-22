@@ -30,4 +30,4 @@ add_custom_target(
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-add_executable(Z_DUMMY_TARGET ${SRC_LIST} src/ControllerServer.cpp src/ControllerServer.hpp src/TasksResponse.cpp src/TasksResponse.hpp src/Task.hpp src/TaskBuilder.cpp src/TaskBuilder.hpp src/LedOnTask.cpp src/LedOnTask.hpp src/LedOffTask.cpp src/LedOffTask.hpp src/constants.h src/NullTask.cpp src/NullTask.h)
+add_executable(Z_DUMMY_TARGET ${SRC_LIST} src/ControllerServer.cpp src/ControllerServer.hpp src/TasksResponse.cpp src/TasksResponse.hpp src/Task.hpp src/TaskBuilder.cpp src/TaskBuilder.hpp src/LedOnTask.cpp src/LedOnTask.hpp src/LedOffTask.cpp src/LedOffTask.hpp src/constants.h src/NullTask.cpp src/NullTask.h src/ResponseBuilder.cpp src/ResponseBuilder.h)

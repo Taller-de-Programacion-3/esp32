@@ -16,7 +16,6 @@ public:
     void execute() override;
 
     void sendResponse(ControllerServer& server) override;
-
 };
 
 

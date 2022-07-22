@@ -3,11 +3,14 @@
 //
 
 #include <Arduino.h>
+#include <WString.h>
 #include <memory>
 #include <cJSON.h>
+#include <map>
 #include "LedOffTask.hpp"
 #include "constants.h"
 #include "ControllerServer.hpp"
+#include "ResponseBuilder.h"
 
 LedOffTask::LedOffTask(int id): taskId(id) {
 
@@ -18,13 +21,9 @@ void LedOffTask::execute() {
 }
 
 void LedOffTask::sendResponse(ControllerServer &server) {
-    auto taskResult = std::unique_ptr<cJSON>(cJSON_CreateObject());
-
-    cJSON_AddNumberToObject(taskResult.get(), "id", this->taskId);
-    cJSON_AddNumberToObject(taskResult.get(), "value", 0);
-
-    auto taskResultArray = std::unique_ptr<cJSON>(cJSON_CreateArray());
-    cJSON_AddItemToArray(taskResultArray.get(), taskResult.get());
-
-    server.sendResponse(cJSON_Print(taskResultArray.get()));
+    auto fields = std::map<String, int>();
+    fields.emplace(std::pair<String, int>("value", 0));
+    fields.emplace(std::pair<String, int>("id", this->taskId));
+    String response = ResponseBuilder::buildJSONResponse(fields);
+    server.sendResponse(response.c_str());
 }
