@@ -13,5 +13,5 @@ std::unique_ptr<Task> TaskBuilder::buildTask(const String &name, int id, String 
     } else if (name == String("Led Off")) {
         return std::unique_ptr<Task>(new LedOffTask(id));
     }
-    return std::unique_ptr<Task>(new NullTask());
+    return std::unique_ptr<Task>(new NullTask(id));
 }

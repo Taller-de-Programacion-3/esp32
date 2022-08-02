@@ -50,7 +50,7 @@ void setup() {
 
 void loop() {
 
-    ControllerServer server("https://taller3-backend.herokuapp.com/devices/tasks/esp32");
+    ControllerServer server("http://taller3.loca.lt/devices/tasks/esp32");
 
     TasksResponse tasks = server.getTasks();
 

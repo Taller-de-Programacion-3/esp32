@@ -8,8 +8,12 @@
 
 #include "Task.hpp"
 
+using namespace std;
+
 class NullTask: virtual public Task {
+    int taskId{};
 public:
+    NullTask(int id);
     void execute() override;
     void sendResponse(ControllerServer& server) override;
 };
